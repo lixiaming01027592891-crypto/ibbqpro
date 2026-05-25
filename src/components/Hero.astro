@@ -1,12 +1,12 @@
 ---
 ---
 
-<section id="hero" class="pt-24 lg:pt-32 pb-16 lg:pb-24" style="background-color: #FAF6F1;">
-  <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10 lg:gap-16 hero-content-wrap">
+<section class="pt-24 lg:pt-32 pb-16 lg:pb-24" style="background-color: #FAF6F1;">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
     <!-- Left: Text -->
-    <div class="w-full lg:w-1/2 opacity-0 animate-fade-in hero-text">
+    <div class="w-full lg:w-1/2 opacity-0 animate-fade-in">
       <!-- Badge -->
-      <span class="hero-badge inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(199,91,57,0.1); color: #C75B39;">
+      <span class="inline-block px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(199,91,57,0.1); color: #C75B39;">
         苗栗・卓蘭 到府服務
       </span>
 
@@ -23,22 +23,22 @@
       </p>
 
       <!-- CTA Buttons -->
-      <div class="mt-8 flex flex-wrap gap-4 hero-ctas">
-        <a href="#cta" class="cta-primary inline-block px-6 py-3 rounded text-white font-medium transition-colors duration-200 hover:opacity-90" style="background-color: #C75B39;">
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="#cta" class="inline-block px-6 py-3 rounded text-white font-medium transition-colors duration-200 hover:opacity-90" style="background-color: #C75B39;">
           預約烤肉
         </a>
-        <a href="#services" class="cta-secondary inline-block px-6 py-3 rounded font-medium border transition-colors duration-200 hover:bg-[rgba(199,91,57,0.05)]" style="border-color: #C75B39; color: #C75B39;">
+        <a href="#services" class="inline-block px-6 py-3 rounded font-medium border transition-colors duration-200 hover:bg-[rgba(199,91,57,0.05)]" style="border-color: #C75B39; color: #C75B39;">
           看服務方案
         </a>
       </div>
     </div>
 
     <!-- Right: Image -->
-    <div class="w-full lg:w-1/2 opacity-0 animate-fade-in hero-image-wrap" style="animation-delay: 150ms;">
+    <div class="w-full lg:w-1/2 opacity-0 animate-fade-in" style="animation-delay: 150ms;">
       <img
         src="/images/hero.png"
         alt="愛烤PRO 到府烤肉現場"
-        class="hero-img w-full h-auto rounded-lg shadow-lg object-cover"
+        class="w-full h-auto rounded-lg shadow-lg object-cover"
         loading="eager"
       />
     </div>
@@ -52,94 +52,5 @@
   }
   .animate-fade-in {
     animation: fadeIn 600ms ease-out forwards;
-  }
-
-  /* ===== Mobile: image background overlay ===== */
-  @media (max-width: 767px) {
-    #hero {
-      position: relative;
-      min-height: 100dvh;
-      background-color: transparent !important;
-      padding-top: 5rem !important;
-      padding-bottom: 4rem !important;
-    }
-
-    /* 圖片轉背景層 absolute 全覆蓋 */
-    #hero .hero-image-wrap {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      padding: 0;
-      margin: 0;
-      opacity: 1 !important;
-      animation: none !important;
-    }
-    #hero .hero-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    /* 半透明漸層遮罩 */
-    #hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(44, 24, 16, 0.45) 0%,
-        rgba(44, 24, 16, 0.75) 100%
-      );
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* 文字內容層提到遮罩之上 */
-    #hero .hero-content-wrap {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      justify-content: center;
-    }
-    #hero .hero-text {
-      opacity: 1 !important;
-      animation: none !important;
-    }
-
-    /* 文字白色化 */
-    #hero h1,
-    #hero p {
-      color: #ffffff !important;
-    }
-
-    /* badge 適配深色背景 */
-    #hero .hero-badge {
-      background: rgba(255, 255, 255, 0.18) !important;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      color: #ffffff !important;
-    }
-
-    /* primary CTA: 白底品牌橘字 */
-    #hero .cta-primary {
-      background: #ffffff !important;
-      color: #C75B39 !important;
-    }
-
-    /* secondary CTA: 透明底白邊白字 */
-    #hero .cta-secondary {
-      background: transparent !important;
-      border-color: rgba(255, 255, 255, 0.7) !important;
-      color: #ffffff !important;
-    }
-    #hero .cta-secondary:hover {
-      background: rgba(255, 255, 255, 0.1) !important;
-      border-color: #ffffff !important;
-    }
   }
 </style>
