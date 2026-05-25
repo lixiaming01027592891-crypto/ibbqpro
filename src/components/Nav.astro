@@ -27,16 +27,16 @@ function isActive(href: string): boolean {
     style="height: 72px;"
   >
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2 flex-shrink-0" aria-label="愛烤PRO 首頁">
-      <img
-        src="/images/logo.png"
-        alt="愛烤PRO"
-        width="140"
-        height="40"
-        class="h-11 md:h-12 w-auto"
-        style="object-fit: contain;"
-        loading="eager"
-      />
+    <a href="/" class="flex items-center gap-2.5 flex-shrink-0" aria-label="愛烤PRO 首頁">
+      <!-- 火焰 SVG -->
+      <svg width="40" height="40" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="flex-shrink-0">
+        <circle cx="32" cy="32" r="30" fill="#C75B39" opacity="0.12"/>
+        <path d="M32 14C32 14 20 24 20 36C20 42 24 48 32 50C40 48 44 42 44 36C44 24 32 14 32 14Z" fill="#C75B39"/>
+        <path d="M32 20C32 20 25 28 25 35C25 39 28 43 32 45C36 43 39 39 39 35C39 28 32 20 32 20Z" fill="#E8784A"/>
+        <path d="M32 26C32 26 28 32 28 37C28 39 30 41 32 42C34 41 36 39 36 37C36 32 32 26 32 26Z" fill="#F5A070"/>
+      </svg>
+      <!-- 品牌文字 -->
+      <span class="text-xl font-bold tracking-tight" style="color: #2C3E33;">愛烤<span style="color: #C75B39;">PRO</span></span>
     </a>
 
     <!-- 桌面導航連結 (>= 768px) -->
