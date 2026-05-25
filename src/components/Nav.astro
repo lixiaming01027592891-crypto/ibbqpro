@@ -73,13 +73,10 @@ function isActive(href: string): boolean {
         navLinks.map((link) => (
           <a
             href={link.href}
-            class="text-sm font-medium transition-colors duration-200"
-            style={isActive(link.href)
-              ? "color: #C75B39;"
-              : "color: #3D2B1F;"
-            }
-            onmouseenter="this.style.color='#C75B39'"
-            onmouseleave={isActive(link.href) ? "this.style.color='#C75B39'" : "this.style.color='#3D2B1F'"}
+            class:list={[
+              "nav-link text-sm font-medium transition-colors duration-200",
+              isActive(link.href) && "nav-link-active",
+            ]}
           >
             {link.label}
           </a>
@@ -153,6 +150,16 @@ function isActive(href: string): boolean {
     立即預約
   </a>
 </div>
+
+<style>
+  .nav-link {
+    color: #3D2B1F;
+  }
+  .nav-link:hover,
+  .nav-link-active {
+    color: #C75B39;
+  }
+</style>
 
 <script>
   (function() {

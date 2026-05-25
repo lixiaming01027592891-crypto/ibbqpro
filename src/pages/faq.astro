@@ -116,19 +116,13 @@ const description =
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="/contact"
-          class="inline-block font-medium py-3 px-8 rounded-lg transition-colors duration-200"
-          style="background-color: #C75B39; color: #FFFFFF;"
-          onmouseover="this.style.backgroundColor='#A84A2D'"
-          onmouseout="this.style.backgroundColor='#C75B39'"
+          class="cta-solid inline-block font-medium py-3 px-8 rounded-lg transition-colors duration-200"
         >
           聯絡我們
         </a>
         <a
           href="/booking"
-          class="inline-block font-medium py-3 px-8 rounded-lg transition-colors duration-200 border"
-          style="border-color: rgba(255,255,255,0.4); color: #FFFFFF;"
-          onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)';this.style.borderColor='#FFFFFF'"
-          onmouseout="this.style.backgroundColor='transparent';this.style.borderColor='rgba(255,255,255,0.4)'"
+          class="cta-outline inline-block font-medium py-3 px-8 rounded-lg transition-colors duration-200 border"
         >
           立即預約
         </a>
@@ -138,6 +132,25 @@ const description =
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .cta-solid {
+    background-color: #C75B39;
+    color: #FFFFFF;
+  }
+  .cta-solid:hover {
+    background-color: #A84A2D;
+  }
+  .cta-outline {
+    background-color: transparent;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+  }
+  .cta-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #FFFFFF;
+  }
+</style>
 
 <!-- FAQ 手風琴效果 -->
 <script>
