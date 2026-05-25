@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import PageBanner from "../components/PageBanner.astro";
 
 const contactInfo = [
   {
@@ -44,14 +45,7 @@ const contactInfo = [
 
 <BaseLayout title="聯絡愛烤PRO｜苗栗到府烤肉、代烤服務" description="有任何問題，歡迎隨時與愛烤PRO聯繫。電話 0909-204-600、LINE @905pkprt，提供苗栗到府烤肉與代烤服務。">
   <Nav />
-
-  <!-- Hero -->
-  <section class="pt-24 pb-12 px-4" style="background-color: #FAF6F1;">
-    <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-3xl font-medium mb-4" style="color: #2C1810;">聯絡愛烤PRO</h1>
-      <p class="text-base max-w-2xl mx-auto" style="color: #8C7B6B; line-height: 1.75;">有任何問題，歡迎隨時與我們聯繫</p>
-    </div>
-  </section>
+  <PageBanner title="聯絡我們" breadcrumb={[{label:"首頁",href:"/"}, {label:"聯絡我們"}]} />
 
   <!-- Contact Section -->
   <section class="pb-20 px-4" style="background-color: #FAF6F1;">

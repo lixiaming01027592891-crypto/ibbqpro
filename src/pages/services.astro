@@ -1,0 +1,291 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import PageBanner from "../components/PageBanner.astro";
+
+const serviceCards = [
+  {
+    image: "/images/family.png",
+    title: "家庭聚餐烤肉",
+    tags: "家庭聚會、生日派對",
+    description:
+      "適合家庭聚會、生日慶祝，讓您與家人輕鬆享受烤肉時光。",
+  },
+  {
+    image: "/images/company.png",
+    title: "公司派對烤肉",
+    tags: "企業聚餐、尾牙活動",
+    description:
+      "企業聚餐、尾牙、團建活動的絕佳選擇，增進團隊感情。",
+  },
+  {
+    image: "/images/camping.png",
+    title: "露營區烤肉",
+    tags: "露營區、戶外活動",
+    description:
+      "在大自然中享受烤肉的樂趣，我們會攜帶專業設備到營區服務。",
+  },
+  {
+    image: "/images/hero.png",
+    title: "民宿包棟烤肉",
+    tags: "民宿包棟、私人聚會",
+    description:
+      "包棟民宿私人聚會的完美搭配，讓您的假期更加難忘。",
+  },
+];
+
+const basicItems = [
+  "頂級牛肉拼盤",
+  "海鮮拼盤（蝦、干貝、花枝）",
+  "雞肉與豬肉拼盤",
+  "新鮮蔬菜組合",
+  "手工香腸與貢丸",
+  "專業烤師現場服務",
+  "全套烤具與餐具",
+];
+
+const premiumItems = [
+  "和牛拼盤（升級）",
+  "頂級海鮮（干貝、大蝦、鮑魚）",
+  "伊比利豬與櫻桃鴨",
+  "新鮮蔬菜與香菇",
+  "手工香腸、貢丸、米腸",
+  "專業烤師與助理雙人服務",
+  "全套烤具、餐具、桌椅",
+  "現場清理服務",
+];
+
+const addons = [
+  { name: "額外肉品（每份）", price: "NT$ 800" },
+  { name: "海鮮拼盤升級", price: "NT$ 1,500" },
+  { name: "素食專區", price: "NT$ 600" },
+  { name: "延長服務時間（每小時）", price: "NT$ 1,000" },
+  { name: "特殊場地佈置", price: "另議" },
+];
+---
+
+<BaseLayout title="服務方案｜愛呷飽專業烤肉服務">
+  <Nav />
+
+  <!-- 1. PageBanner -->
+  <PageBanner
+    title="服務方案"
+    breadcrumb={[
+      { label: "首頁", href: "/" },
+      { label: "服務方案" },
+    ]}
+  />
+
+  <!-- 2. 服務類型 -->
+  <section style="background-color: #FAF6F1;" class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12"
+        style="color: #3D3D3D;"
+      >
+        我們的服務
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
+          serviceCards.map((card) => (
+            <div class="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
+              <div class="h-48 overflow-hidden">
+                <img
+                  src={card.image}
+                  alt={card.title}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6 flex flex-col flex-1">
+                <h3 class="text-lg font-bold mb-2" style="color: #3D3D3D;">
+                  {card.title}
+                </h3>
+                <span
+                  class="inline-block self-start text-xs px-2 py-1 rounded mb-3"
+                  style="background-color: #F0EBE3; color: #6B6B6B;"
+                >
+                  {card.tags}
+                </span>
+                <p class="text-sm leading-relaxed" style="color: #6B6B6B;">
+                  {card.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 套餐菜單 -->
+  <section style="background-color: #FFFFFF;" class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-6">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12"
+        style="color: #3D3D3D;"
+      >
+        精選套餐
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- 超值套餐 -->
+        <div
+          class="rounded-xl p-6 md:p-8 flex flex-col"
+          style="border: 2px solid #F0EBE3; background-color: #FFFFFF;"
+        >
+          <h3 class="text-lg font-bold mb-1" style="color: #3D3D3D;">
+            超值套餐
+          </h3>
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-2xl font-bold" style="color: #C75B39;">
+              NT$ 20,000
+            </span>
+          </div>
+          <p class="text-sm mb-6" style="color: #6B6B6B;">
+            適合 10-15 人
+          </p>
+          <ul class="space-y-3 mb-8 flex-1">
+            {
+              basicItems.map((item) => (
+                <li class="flex items-start gap-2 text-sm" style="color: #3D3D3D;">
+                  <span style="color: #C75B39;" class="mt-0.5 flex-shrink-0">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <a
+            href="/booking"
+            class="block text-center font-medium py-3 px-6 rounded-lg transition-colors"
+            style="border: 2px solid #C75B39; color: #C75B39;"
+            onmouseover="this.style.backgroundColor='#C75B39';this.style.color='#FFFFFF';"
+            onmouseout="this.style.backgroundColor='transparent';this.style.color='#C75B39';"
+          >
+            選擇此方案
+          </a>
+        </div>
+
+        <!-- 老饕套餐 -->
+        <div
+          class="rounded-xl p-6 md:p-8 flex flex-col relative"
+          style="border: 2px solid #C75B39; background-color: #FFFFFF;"
+        >
+          <!-- 推薦標籤 -->
+          <span
+            class="absolute top-0 right-6 text-xs px-3 py-1 rounded-b"
+            style="background-color: #C75B39; color: #FFFFFF;"
+          >
+            推薦
+          </span>
+          <h3 class="text-lg font-bold mb-1" style="color: #3D3D3D;">
+            老饕套餐
+          </h3>
+          <div class="flex items-baseline gap-2 mb-1">
+            <span class="text-2xl font-bold" style="color: #C75B39;">
+              NT$ 25,000
+            </span>
+          </div>
+          <p class="text-sm mb-6" style="color: #6B6B6B;">
+            適合 15-20 人
+          </p>
+          <ul class="space-y-3 mb-8 flex-1">
+            {
+              premiumItems.map((item) => (
+                <li class="flex items-start gap-2 text-sm" style="color: #3D3D3D;">
+                  <span style="color: #C75B39;" class="mt-0.5 flex-shrink-0">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+          <a
+            href="/booking"
+            class="block text-center font-medium py-3 px-6 rounded-lg transition-colors"
+            style="background-color: #C75B39; color: #FFFFFF;"
+            onmouseover="this.style.backgroundColor='#A84A2D';"
+            onmouseout="this.style.backgroundColor='#C75B39';"
+          >
+            選擇此方案
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 加購價格表 -->
+  <section style="background-color: #FAF6F1;" class="py-16 md:py-20">
+    <div class="max-w-3xl mx-auto px-4 md:px-6">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12"
+        style="color: #3D3D3D;"
+      >
+        加購項目
+      </h2>
+      <div>
+        <!-- 表頭 -->
+        <div
+          class="flex justify-between py-4 text-sm font-medium"
+          style="color: #6B6B6B; border-bottom: 1px solid #F0EBE3;"
+        >
+          <span>項目</span>
+          <span>價格</span>
+        </div>
+        <!-- 資料行 -->
+        {
+          addons.map((item) => (
+            <div
+              class="flex justify-between py-4"
+              style="border-bottom: 1px solid #F0EBE3;"
+            >
+              <span class="text-sm" style="color: #3D3D3D;">
+                {item.name}
+              </span>
+              <span class="text-sm font-bold" style="color: #3D3D3D;">
+                {item.price}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CTA -->
+  <section style="background-color: #2C3E33;" class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #FFFFFF;">
+        準備好開烤了嗎？
+      </h2>
+      <p class="mb-8 max-w-xl mx-auto" style="color: rgba(255,255,255,0.7);">
+        立即預約，讓專業團隊為您打造難忘的烤肉體驗
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/booking"
+          class="inline-block font-medium py-3.5 px-7 rounded-lg transition-colors"
+          style="background-color: #C75B39; color: #FFFFFF;"
+          onmouseover="this.style.backgroundColor='#A84A2D';"
+          onmouseout="this.style.backgroundColor='#C75B39';"
+        >
+          立即預約
+        </a>
+        <a
+          href="/contact"
+          class="inline-block font-medium py-3.5 px-7 rounded-lg transition-colors"
+          style="border: 2px solid rgba(255,255,255,0.5); color: #FFFFFF;"
+          onmouseover="this.style.borderColor='#FFFFFF';this.style.backgroundColor='rgba(255,255,255,0.08)';"
+          onmouseout="this.style.borderColor='rgba(255,255,255,0.5)';this.style.backgroundColor='transparent';"
+        >
+          聯絡我們
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>

@@ -2,18 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Footer from "../components/Footer.astro";
+import PageBanner from "../components/PageBanner.astro";
 ---
 
 <BaseLayout title="關於愛烤PRO｜苗栗到府烤肉服務團隊" description="愛烤PRO 成立於苗栗卓蘭，由一群熱愛烤肉文化的職人組成，提供到府代烤、活動烤肉服務，為每一場聚會帶來美味與歡樂。">
   <Nav />
-
-  <!-- Hero -->
-  <section class="pt-24 pb-16 px-4" style="background-color: #FAF6F1;">
-    <div class="max-w-6xl mx-auto text-center">
-      <h1 class="text-3xl font-medium mb-4" style="color: #2C1810;">關於愛烤PRO</h1>
-      <p class="text-base max-w-2xl mx-auto" style="color: #8C7B6B; line-height: 1.75;">從一份熱情開始，為每一場聚會帶來美味與歡樂</p>
-    </div>
-  </section>
+  <PageBanner title="關於我們" breadcrumb={[{label:"首頁",href:"/"}, {label:"關於我們"}]} />
 
   <!-- Brand Story -->
   <section class="py-20 px-4" style="background-color: #FAF6F1;">

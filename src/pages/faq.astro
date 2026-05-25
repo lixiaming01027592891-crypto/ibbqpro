@@ -1,0 +1,179 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import PageBanner from "../components/PageBanner.astro";
+
+const faqs = [
+  {
+    q: "服務地區包含哪些地方？",
+    a: "我們主要服務苗栗縣（卓蘭、大湖、泰安、獅潭等）以及台中市部分地區。其他地區可來電洽詢。",
+  },
+  {
+    q: "最低預約人數是多少？",
+    a: "一般建議 10 人起預約，特殊情況或較近距離可另議。",
+  },
+  {
+    q: "需要提前多久預約？",
+    a: "建議提前 7-14 天預約，旺季或大型活動建議更早預約以確保檔期。",
+  },
+  {
+    q: "食材是如何準備的？",
+    a: "活動當天早上採買新鮮食材，現場處理與醃製，確保最佳品質。",
+  },
+  {
+    q: "是否包含烤爐和用具？",
+    a: "是的，我們會攜帶專業烤爐、木炭、餐具、桌椅等全套設備。",
+  },
+  {
+    q: "現場需要準備什麼？",
+    a: "只需提供場地空間和水源，其餘所有設備與食材都由我們準備。",
+  },
+  {
+    q: "是否可以客製化菜單？",
+    a: "可以，我們可根據人數、預算、飲食需求（如素食、過敏）調整菜單。",
+  },
+  {
+    q: "服務時間多長？",
+    a: "標準服務時間為 3-4 小時，可依需求延長（額外收費）。",
+  },
+  {
+    q: "如何付款？",
+    a: "確認預約後支付 50% 訂金，活動當天結清尾款。可接受現金或銀行轉帳。",
+  },
+  {
+    q: "取消或改期如何處理？",
+    a: "活動前 7 天取消可退全額訂金，3-7 天退 50%，3 天內不退還。",
+  },
+];
+
+const title = "常見問題｜愛烤PRO";
+const description =
+  "愛烤PRO 到府烤肉服務常見問題解答，包含服務地區、預約流程、菜單客製、付款方式等，讓您輕鬆了解我們的服務。";
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/faq">
+  <Nav />
+
+  <!-- 1. PageBanner -->
+  <PageBanner
+    title="常見問題"
+    breadcrumb={[
+      { label: "首頁", href: "/" },
+      { label: "常見問題" },
+    ]}
+  />
+
+  <!-- 2. FAQ 列表 -->
+  <section class="py-16" style="background-color: #FAF6F1;">
+    <div class="max-w-3xl mx-auto px-4">
+      {faqs.map((faq, i) => (
+        <div
+          class="faq-item"
+          style="border-bottom: 1px solid #E5E5E5;"
+          data-index={i}
+        >
+          <!-- 問題列 -->
+          <button
+            type="button"
+            class="faq-question w-full flex justify-between items-center py-5 cursor-pointer bg-transparent border-none text-left"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-base pr-4" style="color: #3D3D3D;">
+              {faq.q}
+            </span>
+            <span
+              class="faq-icon text-xl font-bold flex-shrink-0"
+              style="color: #C75B39;"
+              aria-hidden="true"
+            >
+              +
+            </span>
+          </button>
+          <!-- 答案區 -->
+          <div class="faq-answer hidden">
+            <p class="pb-5 text-sm leading-relaxed" style="color: #6B6B6B;">
+              {faq.a}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 3. CTA 區塊 -->
+  <section style="background-color: #2C3E33;" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h2
+        class="text-2xl md:text-[32px] font-bold mb-3"
+        style="color: #FFFFFF;"
+      >
+        還有其他問題嗎？
+      </h2>
+      <p class="mb-8" style="color: rgba(255,255,255,0.7);">
+        歡迎直接與我們聯繫，我們將竭誠為您解答
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-block font-medium py-3 px-8 rounded-lg transition-colors duration-200"
+          style="background-color: #C75B39; color: #FFFFFF;"
+          onmouseover="this.style.backgroundColor='#A84A2D'"
+          onmouseout="this.style.backgroundColor='#C75B39'"
+        >
+          聯絡我們
+        </a>
+        <a
+          href="/booking"
+          class="inline-block font-medium py-3 px-8 rounded-lg transition-colors duration-200 border"
+          style="border-color: rgba(255,255,255,0.4); color: #FFFFFF;"
+          onmouseover="this.style.backgroundColor='rgba(255,255,255,0.1)';this.style.borderColor='#FFFFFF'"
+          onmouseout="this.style.backgroundColor='transparent';this.style.borderColor='rgba(255,255,255,0.4)'"
+        >
+          立即預約
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
+
+<!-- FAQ 手風琴效果 -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll<HTMLElement>(".faq-item");
+
+    items.forEach((item) => {
+      const btn = item.querySelector<HTMLButtonElement>(".faq-question");
+      const answer = item.querySelector<HTMLElement>(".faq-answer");
+      const icon = item.querySelector<HTMLElement>(".faq-icon");
+
+      if (!btn || !answer || !icon) return;
+
+      btn.addEventListener("click", () => {
+        const isExpanded = btn.getAttribute("aria-expanded") === "true";
+
+        // 收合所有項目
+        items.forEach((otherItem) => {
+          const otherBtn = otherItem.querySelector<HTMLButtonElement>(".faq-question");
+          const otherAnswer = otherItem.querySelector<HTMLElement>(".faq-answer");
+          const otherIcon = otherItem.querySelector<HTMLElement>(".faq-icon");
+
+          if (otherBtn && otherAnswer && otherIcon) {
+            otherBtn.setAttribute("aria-expanded", "false");
+            otherAnswer.classList.add("hidden");
+            otherIcon.textContent = "+";
+          }
+        });
+
+        // 若當前未展開，則展開
+        if (!isExpanded) {
+          btn.setAttribute("aria-expanded", "true");
+          answer.classList.remove("hidden");
+          icon.textContent = "−";
+        }
+      });
+    });
+  });
+</script>

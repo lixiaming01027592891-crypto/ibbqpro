@@ -1,0 +1,223 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import PageBanner from "../components/PageBanner.astro";
+
+const cases = [
+  {
+    title: "卓蘭家庭烤肉派對",
+    category: "家庭聚餐",
+    location: "苗栗卓蘭",
+    people: "15人",
+    image: "/images/case1.png",
+    description: "在自家庭院舉辦的溫馨烤肉派對，親友齊聚享受美味時光。",
+  },
+  {
+    title: "苗栗民宿包棟烤肉",
+    category: "民宿包棟",
+    location: "苗栗大湖",
+    people: "25人",
+    image: "/images/case2.png",
+    description: "包棟民宿搭配專業到府烤肉，讓聚會更加完美難忘。",
+  },
+  {
+    title: "台中公司烤肉活動",
+    category: "公司活動",
+    location: "台中北屯",
+    people: "40人",
+    image: "/images/case3.png",
+    description: "企業團隊烤肉活動，增進同事情誼，享受歡樂時光。",
+  },
+  {
+    title: "泰安露營區烤肉",
+    category: "露營區",
+    location: "苗栗泰安",
+    people: "20人",
+    image: "/images/case4.png",
+    description: "在自然環繞的露營區，體驗最愜意的戶外烤肉樂趣。",
+  },
+  {
+    title: "卓蘭親子烤肉日",
+    category: "家庭聚餐",
+    location: "苗栗卓蘭",
+    people: "12人",
+    image: "/images/family.png",
+    description: "親子同樂的烤肉日，大小朋友都吃得開心、玩得盡興。",
+  },
+  {
+    title: "企業家庭日烤肉",
+    category: "公司活動",
+    location: "台中南屯",
+    people: "60人",
+    image: "/images/company.png",
+    description: "大型企業家庭日活動，專業團隊到場服務，圓滿順利。",
+  },
+  {
+    title: "藍鵲莊園露營烤肉",
+    category: "露營區",
+    location: "苗栗通霄",
+    people: "30人",
+    image: "/images/camping.png",
+    description: "在藍鵲莊園露營區舉辦的烤肉盛宴，星空下盡享美味。",
+  },
+  {
+    title: "風山雅筑民宿烤肉",
+    category: "民宿包棟",
+    location: "苗栗銅鑼",
+    people: "20人",
+    image: "/images/hero.png",
+    description: "包棟民宿烤肉體驗，享受私人空間與專屬服務。",
+  },
+];
+
+const categories = ["全部", "家庭聚餐", "公司活動", "露營區", "民宿包棟"];
+---
+
+<BaseLayout
+  title="精選案例｜愛烤PRO到府烤肉服務"
+  description="探索愛烤PRO的精選烤肉案例，涵蓋家庭聚餐、公司活動、露營區與民宿包棟，為您呈現最真實的服務現場。"
+>
+  <Nav />
+
+  <!-- Page Banner -->
+  <PageBanner
+    title="精選案例"
+    breadcrumb={[
+      { label: "首頁", href: "/" },
+      { label: "精選案例" },
+    ]}
+  />
+
+  <!-- 分類篩選區 -->
+  <section style="background-color: #FFFFFF;">
+    <div class="max-w-6xl mx-auto px-4 py-6">
+      <div class="flex flex-wrap items-center justify-center gap-3" id="filter-group">
+        {categories.map((cat, idx) => (
+          <button
+            type="button"
+            class="filter-btn rounded-full px-4 py-2 text-sm cursor-pointer transition"
+            style={`background-color: ${idx === 0 ? "#C75B39" : "#F0EBE3"}; color: ${idx === 0 ? "#FFFFFF" : "#3D3D3D"}; border: none;`}
+            data-filter={cat === "全部" ? "all" : cat}
+            data-active={idx === 0 ? "true" : "false"}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 案例網格 -->
+  <section style="background-color: #FAF6F1;">
+    <div class="max-w-6xl mx-auto px-4 py-16">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="cases-grid">
+        {cases.map((c) => (
+          <div
+            class="case-card bg-white rounded-xl shadow-sm overflow-hidden"
+            data-category={c.category}
+          >
+            <div style="aspect-ratio: 4/3; overflow: hidden;">
+              <img
+                src={c.image}
+                alt={c.title}
+                loading="lazy"
+                style="width: 100%; height: 100%; object-fit: cover; display: block;"
+              />
+            </div>
+            <div class="p-5">
+              <span
+                class="inline-block text-xs px-2 py-1 rounded mb-2"
+                style="background-color: #C75B39; color: #FFFFFF;"
+              >
+                {c.category}
+              </span>
+              <h3 class="font-bold text-lg" style="color: #3D3D3D;">
+                {c.title}
+              </h3>
+              <div class="flex gap-4 text-sm mt-1" style="color: #6B6B6B;">
+                <span class="flex items-center gap-1">
+                  <svg
+                    class="shrink-0"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  {c.location}
+                </span>
+                <span>{c.people}</span>
+              </div>
+              <p class="text-sm mt-2" style="color: #3D3D3D; line-height: 1.6;">
+                {c.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA 區塊 -->
+  <section style="background-color: #2C3E33;">
+    <div class="max-w-6xl mx-auto px-4 py-20 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #FFFFFF;">
+        想成為我們的下一個案例嗎？
+      </h2>
+      <p class="text-base mb-8" style="color: rgba(255,255,255,0.7);">
+        立即預約，讓我們為您打造專屬的烤肉體驗
+      </p>
+      <a
+        href="/booking"
+        class="inline-block rounded px-8 py-3 text-base font-medium transition-opacity duration-200 hover:opacity-90"
+        style="background-color: #C75B39; color: #FFFFFF;"
+      >
+        立即預約
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    (function () {
+      var filterGroup = document.getElementById("filter-group");
+      var btns = filterGroup.querySelectorAll(".filter-btn");
+      var grid = document.getElementById("cases-grid");
+      var cards = grid.querySelectorAll(".case-card");
+
+      btns.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var filter = btn.getAttribute("data-filter");
+
+          // 更新按鈕樣式
+          btns.forEach(function (b) {
+            b.style.backgroundColor = "#F0EBE3";
+            b.style.color = "#3D3D3D";
+            b.setAttribute("data-active", "false");
+          });
+          btn.style.backgroundColor = "#C75B39";
+          btn.style.color = "#FFFFFF";
+          btn.setAttribute("data-active", "true");
+
+          // 篩選卡片
+          cards.forEach(function (card) {
+            var cat = card.getAttribute("data-category");
+            if (filter === "all" || cat === filter) {
+              card.style.display = "";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    })();
+  </script>
+</BaseLayout>
