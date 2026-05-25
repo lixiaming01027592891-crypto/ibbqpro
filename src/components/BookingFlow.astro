@@ -1,0 +1,68 @@
+---
+const steps = [
+  {
+    num: 1,
+    title: "來電或 LINE 詢問",
+    desc: "撥打 0909-204-600 或加入 LINE 官方帳號",
+  },
+  {
+    num: 2,
+    title: "確認人數、地點與菜單",
+    desc: "依活動需求討論方案",
+  },
+  {
+    num: 3,
+    title: "團隊到府準備",
+    desc: "活動當天攜帶食材與器具到場",
+  },
+  {
+    num: 4,
+    title: "現場開烤，輕鬆聚餐",
+    desc: "專人協助，您只需享受聚餐時光",
+  },
+];
+---
+
+<section id="booking" class="bg-[#FAF6F1] py-16 lg:py-24">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-2xl font-medium text-[#2C1810] text-center mb-12">
+      預約流程
+    </h2>
+
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 relative"
+    >
+      {
+        steps.map((step, i) => (
+          <div class="step-item relative text-center px-4">
+            {/* 數字圓圈 */}
+            <div class="w-12 h-12 rounded-full bg-[#C75B39] text-white flex items-center justify-center text-lg font-medium mx-auto">
+              {step.num}
+            </div>
+
+            {/* 標題 */}
+            <h3 class="mt-4 font-medium text-[#3D2B1F] text-base">
+              {step.title}
+            </h3>
+
+            {/* 說明 */}
+            <p class="mt-2 text-sm text-[#8C7B6B] leading-relaxed">
+              {step.desc}
+            </p>
+
+            {/* 桌面版連接線（最後一步不需要） */}
+            {i < steps.length - 1 && (
+              <div class="hidden lg:block absolute top-6 left-[calc(50%+24px)] right-[calc(-50%+24px)] h-px bg-[#C75B39]/20" />
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .step-item {
+    position: relative;
+  }
+</style>

@@ -1,0 +1,95 @@
+---
+const faqs = [
+  {
+    q: "服務地區有哪些？",
+    a: "以苗栗、卓蘭及周邊地區為主，其他地區可來電洽詢。",
+  },
+  {
+    q: "最低預約人數是多少？",
+    a: "依方案與菜單安排，建議來電或 LINE 詢問。",
+  },
+  {
+    q: "需要提前多久預約？",
+    a: "建議提前 3–7 天預約，方便確認人數、菜單與服務時間。",
+  },
+  {
+    q: "食材可以客製化嗎？",
+    a: "可以，預約時可告知偏好、忌口與活動需求。",
+  },
+  {
+    q: "如何付款？",
+    a: "可依預約方式確認付款方式，實際以電話或 LINE 確認為準。",
+  },
+];
+---
+
+<section id="faq" class="bg-white py-16 lg:py-24">
+  <div class="max-w-2xl mx-auto px-4">
+    <h2 class="text-2xl font-medium text-[#2C1810] text-center mb-12">
+      常見問題
+    </h2>
+
+    <div class="faq-list">
+      {
+        faqs.map((faq, i) => (
+          <div class="faq-item border border-gray-100 rounded-lg mb-3 overflow-hidden">
+            <button
+              class="faq-trigger w-full p-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors"
+              data-index={i}
+              type="button"
+            >
+              <span class="font-medium text-[#3D2B1F] text-left">
+                {faq.q}
+              </span>
+              <span class="faq-icon text-[#C75B39] text-xl font-medium ml-4 shrink-0">
+                +
+              </span>
+            </button>
+            <div class="faq-answer hidden">
+              <p class="p-4 pt-0 text-[#8C7B6B] text-sm leading-relaxed">
+                {faq.a}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    const items = document.querySelectorAll<HTMLElement>(".faq-item");
+
+    items.forEach((item) => {
+      const trigger = item.querySelector<HTMLElement>(".faq-trigger");
+      const answer = item.querySelector<HTMLElement>(".faq-answer");
+      const icon = item.querySelector<HTMLElement>(".faq-icon");
+
+      if (!trigger || !answer || !icon) return;
+
+      trigger.addEventListener("click", () => {
+        const isOpen = !answer.classList.contains("hidden");
+
+        // 手風琴效果：收合其他
+        items.forEach((otherItem) => {
+          const otherAnswer = otherItem.querySelector<HTMLElement>(".faq-answer");
+          const otherIcon = otherItem.querySelector<HTMLElement>(".faq-icon");
+          if (otherAnswer && otherIcon && otherItem !== item) {
+            otherAnswer.classList.add("hidden");
+            otherIcon.textContent = "+";
+          }
+        });
+
+        // 切換當前
+        if (isOpen) {
+          answer.classList.add("hidden");
+          icon.textContent = "+";
+        } else {
+          answer.classList.remove("hidden");
+          icon.textContent = "−";
+        }
+      });
+    });
+  })();
+</script>
