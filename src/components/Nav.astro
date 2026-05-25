@@ -17,10 +17,11 @@ function isActive(href: string): boolean {
 }
 ---
 
-<!-- 導航列 -->
+<!-- 導航列：全站固定白底，不分首頁/內頁 -->
 <nav
   id="main-nav"
-  style="position: fixed; top: 0; width: 100%; z-index: 100; transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;"
+  class="bg-white"
+  style="position: fixed; top: 0; width: 100%; z-index: 100; transition: box-shadow 0.3s ease;"
 >
   <div
     class="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between"
@@ -63,7 +64,7 @@ function isActive(href: string): boolean {
         <circle cx="14" cy="20" r="0.6" fill="#F5A070" opacity="0.4"/>
       </svg>
       <!-- 品牌文字 -->
-      <span class="text-[22px] font-bold tracking-tight" style="color: #2C3E33;">愛烤<span style="color: #C75B39;">PRO</span></span>
+      <span class="text-[22px] font-bold tracking-tight" style="color: #2C1810;">愛烤<span style="color: #C75B39;">PRO</span></span>
     </a>
 
     <!-- 桌面導航連結 (>= 768px) -->
@@ -96,15 +97,15 @@ function isActive(href: string): boolean {
       <span
         id="bar-1"
         class="block w-5 h-0.5 transition-all duration-300"
-        style="background-color: #3D3D3D;"></span>
+        style="background-color: #2C1810;"></span>
       <span
         id="bar-2"
         class="block w-5 h-0.5 transition-all duration-300"
-        style="background-color: #3D3D3D;"></span>
+        style="background-color: #2C1810;"></span>
       <span
         id="bar-3"
         class="block w-5 h-0.5 transition-all duration-300"
-        style="background-color: #3D3D3D;"></span>
+        style="background-color: #2C1810;"></span>
     </button>
   </div>
 </nav>
@@ -164,17 +165,11 @@ function isActive(href: string): boolean {
     const bar2 = document.getElementById('bar-2');
     const bar3 = document.getElementById('bar-3');
 
-    // 滾動效果：初始透明 → 滾動後毛玻璃
+    // 滾動效果：>10px 加 shadow-sm，背景始終白底不變
     function handleScroll() {
       if (window.scrollY > 10) {
-        nav.style.background = 'rgba(250, 246, 241, 0.95)';
-        nav.style.backdropFilter = 'blur(10px)';
-        nav.style.WebkitBackdropFilter = 'blur(10px)';
-        nav.style.boxShadow = '0 1px 4px rgba(0,0,0,0.08)';
+        nav.style.boxShadow = '0 1px 3px rgba(0,0,0,0.08)';
       } else {
-        nav.style.background = 'transparent';
-        nav.style.backdropFilter = 'none';
-        nav.style.WebkitBackdropFilter = 'none';
         nav.style.boxShadow = 'none';
       }
     }
@@ -203,10 +198,10 @@ function isActive(href: string): boolean {
       menuBtn.setAttribute('aria-expanded', 'false');
       // X 變漢堡
       bar1.style.transform = '';
-      bar1.style.backgroundColor = '#3D3D3D';
+      bar1.style.backgroundColor = '#2C1810';
       bar2.style.opacity = '1';
       bar3.style.transform = '';
-      bar3.style.backgroundColor = '#3D3D3D';
+      bar3.style.backgroundColor = '#2C1810';
       // 恢復滾動
       document.body.style.overflow = '';
     }
