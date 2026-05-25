@@ -66,7 +66,7 @@ const cases = [
     category: "民宿包棟",
     location: "苗栗銅鑼",
     people: "20人",
-    image: "/images/hero.png",
+    image: "/images/hero-v2.jpg",
     description: "包棟民宿烤肉體驗，享受私人空間與專屬服務。",
   },
 ];
@@ -188,17 +188,19 @@ const categories = ["全部", "家庭聚餐", "公司活動", "露營區", "民�
 
   <script>
     (function () {
-      var filterGroup = document.getElementById("filter-group");
-      var btns = filterGroup.querySelectorAll(".filter-btn");
-      var grid = document.getElementById("cases-grid");
-      var cards = grid.querySelectorAll(".case-card");
+      const filterGroup = document.getElementById("filter-group");
+      const grid = document.getElementById("cases-grid");
+      if (!filterGroup || !grid) return;
 
-      btns.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var filter = btn.getAttribute("data-filter");
+      const btns = filterGroup.querySelectorAll<HTMLButtonElement>(".filter-btn");
+      const cards = grid.querySelectorAll<HTMLElement>(".case-card");
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filter = btn.getAttribute("data-filter");
 
           // 更新按鈕樣式
-          btns.forEach(function (b) {
+          btns.forEach((b) => {
             b.style.backgroundColor = "#F0EBE3";
             b.style.color = "#3D3D3D";
             b.setAttribute("data-active", "false");
@@ -208,8 +210,8 @@ const categories = ["全部", "家庭聚餐", "公司活動", "露營區", "民�
           btn.setAttribute("data-active", "true");
 
           // 篩選卡片
-          cards.forEach(function (card) {
-            var cat = card.getAttribute("data-category");
+          cards.forEach((card) => {
+            const cat = card.getAttribute("data-category");
             if (filter === "all" || cat === filter) {
               card.style.display = "";
             } else {

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout
@@ -7,23 +9,26 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   description="您要找的頁面不存在，讓我們帶您返回愛烤PRO首頁，探索到府烤肉服務。"
   noindex={true}
 >
-  <main class="min-h-[70vh] flex items-center justify-center px-4">
+  <Nav />
+
+  <main class="min-h-[70vh] flex items-center justify-center px-4 pt-24">
     <div class="text-center max-w-lg mx-auto">
       <!-- 404 數字 -->
-      <h1 class="text-8xl font-bold text-bbq-orange mb-4 tracking-tight">
+      <h1 class="text-8xl font-bold mb-4 tracking-tight" style="color: #C75B39;">
         404
       </h1>
 
       <!-- 錯誤訊息 -->
-      <p class="text-2xl font-semibold text-bbq-text mb-2">頁面找不到</p>
-      <p class="text-bbq-brown/70 mb-8 leading-relaxed">
+      <p class="text-2xl font-semibold mb-2" style="color: #2C1810;">頁面找不到</p>
+      <p class="mb-8 leading-relaxed" style="color: rgba(61, 43, 31, 0.7);">
         您要找的頁面似乎已經被烤熟了，或是從來不曾存在過。
       </p>
 
       <!-- 返回首頁按鈕 -->
       <a
         href="/"
-        class="inline-flex items-center gap-2 px-8 py-3.5 bg-bbq-orange hover:bg-bbq-orange-dark text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        class="inline-flex items-center gap-2 px-8 py-3.5 text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg"
+        style="background-color: #C75B39;"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -39,4 +44,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </a>
     </div>
   </main>
+
+  <Footer />
 </BaseLayout>

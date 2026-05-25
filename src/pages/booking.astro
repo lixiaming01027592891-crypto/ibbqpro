@@ -156,26 +156,28 @@ import PageBanner from "../components/PageBanner.astro";
   <Footer />
 
   <script>
-    const form = document.getElementById('booking-form');
+    const form = document.getElementById('booking-form') as HTMLFormElement | null;
     const status = document.getElementById('form-status');
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
-        if (res.ok) {
-          status.textContent = '預約已送出！我們將在 24 小時內與您聯繫。';
-          status.style.color = '#15803d';
+    if (form && status) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+          if (res.ok) {
+            status.textContent = '預約已送出！我們將在 24 小時內與您聯繫。';
+            status.style.color = '#15803d';
+            status.classList.remove('hidden');
+            form.reset();
+          } else {
+            throw new Error('提交失敗');
+          }
+        } catch {
+          status.textContent = '送出失敗，請直接撥打 0909-204-600 或透過 LINE 聯繫我們。';
+          status.style.color = '#C75B39';
           status.classList.remove('hidden');
-          form.reset();
-        } else {
-          throw new Error('提交失敗');
         }
-      } catch {
-        status.textContent = '送出失敗，請直接撥打 0909-204-600 或透過 LINE 聯繫我們。';
-        status.style.color = '#C75B39';
-        status.classList.remove('hidden');
-      }
-    });
+      });
+    }
   </script>
 </BaseLayout>

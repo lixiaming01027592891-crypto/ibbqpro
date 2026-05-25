@@ -1,23 +1,90 @@
 ---
+const navLinks = [
+  { label: "關於我們", href: "/about" },
+  { label: "服務方案", href: "/services" },
+  { label: "精選案例", href: "/gallery" },
+  { label: "愛烤日記", href: "/blog" },
+  { label: "線上預約", href: "/booking" },
+  { label: "常見問題", href: "/faq" },
+  { label: "聯絡我們", href: "/contact" },
+];
+
+const socials = [
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61560094407223" },
+  { label: "Instagram", href: "https://www.instagram.com/ibbqpro/" },
+  { label: "TikTok", href: "https://www.tiktok.com/@pro559509" },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCL08VRymkYi0b5c4JqAEeyA" },
+];
 ---
 
 <footer class="bg-[#2C1810] border-t border-white/10">
-  <div
-    class="max-w-6xl mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center text-center gap-3"
-  >
-    <p class="text-white/40 text-sm">
-      © 2025 愛烤PRO. All rights reserved.
-    </p>
+  <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- 品牌 -->
+      <div>
+        <p class="text-white font-medium text-lg mb-3">愛烤PRO</p>
+        <p class="text-white/60 text-sm leading-relaxed">
+          苗栗卓蘭到府烤肉・專人代烤服務。家庭聚餐、公司派對、露營民宿，輕鬆開烤。
+        </p>
+      </div>
 
-    <p class="text-white/40 text-sm">
-      實際服務內容與價格請來電確認
-    </p>
+      <!-- 聯絡資訊 -->
+      <div>
+        <p class="text-white font-medium text-sm mb-3">聯絡資訊</p>
+        <ul class="space-y-2 text-sm">
+          <li>
+            <a href="tel:0909204600" class="text-white/60 hover:text-white transition-colors">
+              0909-204-600
+            </a>
+          </li>
+          <li class="text-white/60">@905pkprt（LINE）</li>
+          <li>
+            <a href="mailto:a0909204600@gmail.com" class="text-white/60 hover:text-white transition-colors break-all">
+              a0909204600@gmail.com
+            </a>
+          </li>
+          <li class="text-white/60">苗栗縣卓蘭鎮大仁街26號</li>
+          <li class="text-white/60">每日 10:00–22:00</li>
+        </ul>
+      </div>
 
-    <a
-      href="/blog"
-      class="text-white/40 hover:text-white/70 text-sm transition-colors"
-    >
-      愛烤日記
-    </a>
+      <!-- 站內導覽 -->
+      <div>
+        <p class="text-white font-medium text-sm mb-3">站內導覽</p>
+        <ul class="space-y-2 text-sm">
+          {navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="text-white/60 hover:text-white transition-colors">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- 追蹤我們 -->
+      <div>
+        <p class="text-white font-medium text-sm mb-3">追蹤我們</p>
+        <ul class="space-y-2 text-sm">
+          {socials.map((s) => (
+            <li>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white/60 hover:text-white transition-colors"
+              >
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs">
+      <p class="text-white/40">© 2025 愛烤PRO. All rights reserved.</p>
+      <p class="text-white/40">實際服務內容與價格請來電確認</p>
+    </div>
   </div>
 </footer>

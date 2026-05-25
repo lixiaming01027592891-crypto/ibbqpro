@@ -5,14 +5,16 @@ interface Props {
   ogImage?: string;
   canonicalPath?: string;
   noindex?: boolean;
+  schema?: Record<string, unknown>;
 }
 
 const {
   title = "愛烤PRO｜苗栗卓蘭到府烤肉・專人代烤服務",
   description = "愛烤PRO 提供苗栗、卓蘭及周邊到府烤肉服務，適合家庭聚餐、公司派對、露營與民宿包棟，提供食材、菜單與專人到府協助，歡迎來電或 LINE 預約。",
-  ogImage = "/images/hero.png",
+  ogImage = "/images/hero-v2.jpg",
   canonicalPath = Astro.url.pathname,
   noindex = true,
+  schema,
 } = Astro.props;
 
 const siteUrl = "https://ibbqpro.pages.dev";
@@ -109,12 +111,12 @@ const schemaOrg = {
     <meta property="twitter:image" content={ogImageUrl} />
 
     <!-- Schema.org 結構化資料 (JSON-LD) -->
-    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema ?? schemaOrg)} />
 
     <!-- 額外 head slot（供頁面覆寫） -->
     <slot name="head" />
   </head>
-  <body class="font-sans text-bbq-text bg-bbq-bg antialiased">
+  <body class="font-sans text-bbq-text bg-bbq-bg antialiased pb-[64px] md:pb-0">
     <slot />
   </body>
 </html>

@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
     excerpt: '越來越多人選擇在家中舉辦聚會，不必出門人擠人，就能享受溫馨又美味的烤肉時光。愛烤PRO 提供完整的到府代烤服務。',
     date: '2025-02-15',
     category: '家庭聚餐',
-    image: '/images/hero.png',
+    image: '/images/hero-v2.jpg',
     content: `
       <h2>為什麼選擇在家烤肉？</h2>
       <p>在家中舉辦烤肉派對，不用擔心餐廳的時間限制，不用煩惱交通與停車，可以盡情享受與家人朋友相處的時光。</p>

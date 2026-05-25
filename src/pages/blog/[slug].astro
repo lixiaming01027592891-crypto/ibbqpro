@@ -11,9 +11,39 @@ export function getStaticPaths() {
   }));
 }
 const { post } = Astro.props;
+
+const siteUrl = "https://ibbqpro.pages.dev";
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.title,
+  description: post.excerpt,
+  image: new URL(post.image, siteUrl).href,
+  datePublished: post.date,
+  articleSection: post.category,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": new URL(`/blog/${post.slug}/`, siteUrl).href,
+  },
+  author: {
+    "@type": "Organization",
+    name: "愛烤PRO",
+    url: siteUrl,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "愛烤PRO",
+    url: siteUrl,
+  },
+};
 ---
 
-<BaseLayout title={`${post.title}｜愛烤PRO 愛烤日記`} description={post.excerpt}>
+<BaseLayout
+  title={`${post.title}｜愛烤PRO 愛烤日記`}
+  description={post.excerpt}
+  ogImage={post.image}
+  schema={blogSchema}
+>
   <Nav />
 
   <!-- 1. 頁面標題橫幅 -->
