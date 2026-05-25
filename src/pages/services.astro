@@ -6,71 +6,71 @@ import PageBanner from "../components/PageBanner.astro";
 
 const serviceCards = [
   {
-    image: "/images/family.png",
-    title: "家庭聚餐烤肉",
-    tags: "家庭聚會、生日派對",
-    description:
-      "適合家庭聚會、生日慶祝，讓您與家人輕鬆享受烤肉時光。",
+    image: "/images/service-family.jpg",
+    title: "家庭聚餐",
+    description: "生日、家族聚會、節慶聚餐。親子友善、食材新鮮。",
   },
   {
-    image: "/images/company.png",
-    title: "公司派對烤肉",
-    tags: "企業聚餐、尾牙活動",
-    description:
-      "企業聚餐、尾牙、團建活動的絕佳選擇，增進團隊感情。",
+    image: "/images/service-company.jpg",
+    title: "公司派對",
+    description: "尾牙、慶功、團建、員工聚餐。專業團隊到場服務。",
   },
   {
-    image: "/images/camping.png",
-    title: "露營區烤肉",
-    tags: "露營區、戶外活動",
-    description:
-      "在大自然中享受烤肉的樂趣，我們會攜帶專業設備到營區服務。",
+    image: "/images/service-camping.jpg",
+    title: "露營／民宿",
+    description: "露營區、民宿包棟、戶外聚會。彈性菜單，戶外友善。",
   },
   {
-    image: "/images/hero.png",
-    title: "民宿包棟烤肉",
-    tags: "民宿包棟、私人聚會",
-    description:
-      "包棟民宿私人聚會的完美搭配，讓您的假期更加難忘。",
+    image: "/images/service-outdoor.jpg",
+    title: "戶外活動",
+    description: "開幕活動、戶外派對、節慶烤肉。Buffet 餐車服務。",
   },
 ];
 
-const basicItems = [
-  "頂級牛肉拼盤",
-  "海鮮拼盤（蝦、干貝、花枝）",
-  "雞肉與豬肉拼盤",
-  "新鮮蔬菜組合",
-  "手工香腸與貢丸",
-  "專業烤師現場服務",
-  "全套烤具與餐具",
-];
+const basicMenu = {
+  title: "超值套餐",
+  price: "$20,000 起",
+  note: "20人份",
+  categories: [
+    { name: "前菜", items: "必吃開胃鳳爪、黃金泡菜" },
+    { name: "蔬菜小物", items: "新鮮櫛瓜、帶殼玉米筍、醬燒杏鮑菇、新鮮香菇、擺盤配菜、炭烤新鮮吐司" },
+    { name: "海鮮", items: "直火炭烤大魷魚、挪威鯖魚、糖果白蝦" },
+    { name: "肉品", items: "美國 Choice 帶骨牛小排、美國 1855 翼板牛排、醬燒黑豬肉片、碳燒鹹豬肉、老店手工香腸、椒鹽去骨雞腿排" },
+    { name: "串燒烤物", items: "愛烤PRO綜合串、爆汁雞肉捲、真・天婦羅、椒鹽糯米腸" },
+  ],
+};
 
-const premiumItems = [
-  "和牛拼盤（升級）",
-  "頂級海鮮（干貝、大蝦、鮑魚）",
-  "伊比利豬與櫻桃鴨",
-  "新鮮蔬菜與香菇",
-  "手工香腸、貢丸、米腸",
-  "專業烤師與助理雙人服務",
-  "全套烤具、餐具、桌椅",
-  "現場清理服務",
-];
+const premiumMenu = {
+  title: "老饕套餐",
+  price: "$25,000 起",
+  note: "20人份",
+  categories: [
+    { name: "前菜", items: "必吃開胃鳳爪、黃金泡菜" },
+    { name: "蔬菜小物", items: "新鮮櫛瓜、帶殼玉米筍、醬燒杏鮑菇、新鮮香菇、擺盤配菜、碳烤奶酥餐包" },
+    { name: "海鮮", items: "北海道生食級干貝、直火炭烤大魷魚、糖果白蝦" },
+    { name: "肉品", items: "美國安格斯無骨牛小排、美國肋眼沙朗原塊、法式小羔羊排、國產頂級松阪豬、醬燒黑豬肉片、老店手工香腸、椒鹽去骨雞腿排、櫻桃鴨胸" },
+    { name: "串燒烤物", items: "愛烤PRO綜合串、爆汁雞肉捲、真・天婦羅、椒鹽糯米腸" },
+  ],
+};
 
 const addons = [
-  { name: "額外肉品（每份）", price: "NT$ 800" },
-  { name: "海鮮拼盤升級", price: "NT$ 1,500" },
-  { name: "素食專區", price: "NT$ 600" },
-  { name: "延長服務時間（每小時）", price: "NT$ 1,000" },
-  { name: "特殊場地佈置", price: "另議" },
+  { name: "美國無骨牛小排", spec: "600g", price: "$990" },
+  { name: "美國帶骨牛小排", spec: "600g", price: "$590" },
+  { name: "台灣松阪豬", spec: "600g", price: "$490" },
+  { name: "伊比利豬肋條", spec: "500g", price: "$690" },
+  { name: "活泰國蝦", spec: "600g", price: "$600" },
+  { name: "黃金桶仔雞", spec: "全隻", price: "$600" },
+  { name: "炒飯 / 炒麵 / 炒米粉", spec: "一人份", price: "$75" },
+  { name: "海尼根生啤機（含設備）", spec: "8公升", price: "$1,790" },
 ];
 ---
 
-<BaseLayout title="服務方案｜愛呷飽專業烤肉服務">
+<BaseLayout title="服務方案與菜單｜愛烤PRO">
   <Nav />
 
   <!-- 1. PageBanner -->
   <PageBanner
-    title="服務方案"
+    title="服務方案與菜單"
     breadcrumb={[
       { label: "首頁", href: "/" },
       { label: "服務方案" },
@@ -78,40 +78,27 @@ const addons = [
   />
 
   <!-- 2. 服務類型 -->
-  <section style="background-color: #FAF6F1;" class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <h2
-        class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12"
-        style="color: #3D3D3D;"
-      >
-        我們的服務
+  <section class="spad" style="background-color: #FAF6F1; padding: 64px 0;">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 500; color: #2C1810; text-align: center; margin-bottom: 32px;">
+        服務類型
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="t4grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
         {
           serviceCards.map((card) => (
-            <div class="bg-white rounded-xl shadow-sm overflow-hidden flex flex-col">
-              <div class="h-48 overflow-hidden">
-                <img
-                  src={card.image}
-                  alt={card.title}
-                  class="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <div class="p-6 flex flex-col flex-1">
-                <h3 class="text-lg font-bold mb-2" style="color: #3D3D3D;">
-                  {card.title}
-                </h3>
-                <span
-                  class="inline-block self-start text-xs px-2 py-1 rounded mb-3"
-                  style="background-color: #F0EBE3; color: #6B6B6B;"
-                >
-                  {card.tags}
-                </span>
-                <p class="text-sm leading-relaxed" style="color: #6B6B6B;">
-                  {card.description}
-                </p>
-              </div>
+            <div class="scard" style="background-color: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 6px #2c18100f;">
+              <img
+                src={card.image}
+                alt={card.title}
+                style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;"
+                loading="lazy"
+              />
+              <h3 style="font-size: 16px; font-weight: 500; color: #2c1810; padding: 16px 16px 4px;">
+                {card.title}
+              </h3>
+              <p style="font-size: 13px; color: #8c7b6b; padding: 0 16px 16px; line-height: 1.6;">
+                {card.description}
+              </p>
             </div>
           ))
         }
@@ -119,169 +106,128 @@ const addons = [
     </div>
   </section>
 
-  <!-- 3. 套餐菜單 -->
-  <section style="background-color: #FFFFFF;" class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <h2
-        class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12"
-        style="color: #3D3D3D;"
-      >
-        精選套餐
+  <!-- 3. 精選菜單 -->
+  <section id="menu" class="spad" style="background-color: #fff; padding: 64px 0;">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 500; color: #2C1810; text-align: center; margin-bottom: 8px;">
+        精選菜單
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <p style="font-size: 14px; color: #8c7b6b; text-align: center; margin-bottom: 32px;">
+        依季節與食材新鮮度調整，品項可客製化
+      </p>
+      <div class="m2grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
         <!-- 超值套餐 -->
-        <div
-          class="rounded-xl p-6 md:p-8 flex flex-col"
-          style="border: 2px solid #F0EBE3; background-color: #FFFFFF;"
-        >
-          <h3 class="text-lg font-bold mb-1" style="color: #3D3D3D;">
-            超值套餐
-          </h3>
-          <div class="flex items-baseline gap-2 mb-1">
-            <span class="text-2xl font-bold" style="color: #C75B39;">
-              NT$ 20,000
-            </span>
+        <div style="border: 1px solid rgba(44,24,16,0.1); border-radius: 10px; overflow: hidden;">
+          <div style="background-color: #2c1810; color: #faf6f1; padding: 20px 24px;">
+            <h3 style="font-size: 18px; font-weight: 500;">{basicMenu.title}</h3>
+            <div style="font-size: 20px; color: #c75b39; font-weight: 500; margin-top: 4px;">
+              {basicMenu.price}
+            </div>
+            <div style="font-size: 13px; color: #8c7b6b; margin-top: 2px;">
+              {basicMenu.note}
+            </div>
           </div>
-          <p class="text-sm mb-6" style="color: #6B6B6B;">
-            適合 10-15 人
-          </p>
-          <ul class="space-y-3 mb-8 flex-1">
+          <div style="padding: 20px 24px;">
             {
-              basicItems.map((item) => (
-                <li class="flex items-start gap-2 text-sm" style="color: #3D3D3D;">
-                  <span style="color: #C75B39;" class="mt-0.5 flex-shrink-0">
-                    ✓
-                  </span>
-                  <span>{item}</span>
-                </li>
+              basicMenu.categories.map((cat) => (
+                <div style="margin-bottom: 12px;">
+                  <h4 style="font-size: 14px; font-weight: 500; color: #c75b39; margin-bottom: 4px;">
+                    {cat.name}
+                  </h4>
+                  <p style="font-size: 14px; color: #3d2b1f; line-height: 1.6;">
+                    {cat.items}
+                  </p>
+                </div>
               ))
             }
-          </ul>
-          <a
-            href="/booking"
-            class="block text-center font-medium py-3 px-6 rounded-lg transition-colors"
-            style="border: 2px solid #C75B39; color: #C75B39;"
-            onmouseover="this.style.backgroundColor='#C75B39';this.style.color='#FFFFFF';"
-            onmouseout="this.style.backgroundColor='transparent';this.style.color='#C75B39';"
-          >
-            選擇此方案
-          </a>
+          </div>
         </div>
 
         <!-- 老饕套餐 -->
-        <div
-          class="rounded-xl p-6 md:p-8 flex flex-col relative"
-          style="border: 2px solid #C75B39; background-color: #FFFFFF;"
-        >
-          <!-- 推薦標籤 -->
+        <div style="border: 1px solid #c75b39; border-radius: 10px; overflow: hidden; position: relative;">
           <span
-            class="absolute top-0 right-6 text-xs px-3 py-1 rounded-b"
-            style="background-color: #C75B39; color: #FFFFFF;"
+            style="position: absolute; top: 0; right: 24px; background-color: #c75b39; color: #fff; font-size: 12px; padding: 4px 12px; border-radius: 0 0 4px 4px; z-index: 1;"
           >
             推薦
           </span>
-          <h3 class="text-lg font-bold mb-1" style="color: #3D3D3D;">
-            老饕套餐
-          </h3>
-          <div class="flex items-baseline gap-2 mb-1">
-            <span class="text-2xl font-bold" style="color: #C75B39;">
-              NT$ 25,000
-            </span>
+          <div style="background-color: #2c1810; color: #faf6f1; padding: 20px 24px;">
+            <h3 style="font-size: 18px; font-weight: 500;">{premiumMenu.title}</h3>
+            <div style="font-size: 20px; color: #c75b39; font-weight: 500; margin-top: 4px;">
+              {premiumMenu.price}
+            </div>
+            <div style="font-size: 13px; color: #8c7b6b; margin-top: 2px;">
+              {premiumMenu.note}
+            </div>
           </div>
-          <p class="text-sm mb-6" style="color: #6B6B6B;">
-            適合 15-20 人
-          </p>
-          <ul class="space-y-3 mb-8 flex-1">
+          <div style="padding: 20px 24px;">
             {
-              premiumItems.map((item) => (
-                <li class="flex items-start gap-2 text-sm" style="color: #3D3D3D;">
-                  <span style="color: #C75B39;" class="mt-0.5 flex-shrink-0">
-                    ✓
-                  </span>
-                  <span>{item}</span>
-                </li>
+              premiumMenu.categories.map((cat) => (
+                <div style="margin-bottom: 12px;">
+                  <h4 style="font-size: 14px; font-weight: 500; color: #c75b39; margin-bottom: 4px;">
+                    {cat.name}
+                  </h4>
+                  <p style="font-size: 14px; color: #3d2b1f; line-height: 1.6;">
+                    {cat.items}
+                  </p>
+                </div>
               ))
             }
-          </ul>
-          <a
-            href="/booking"
-            class="block text-center font-medium py-3 px-6 rounded-lg transition-colors"
-            style="background-color: #C75B39; color: #FFFFFF;"
-            onmouseover="this.style.backgroundColor='#A84A2D';"
-            onmouseout="this.style.backgroundColor='#C75B39';"
-          >
-            選擇此方案
-          </a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. 加購價格表 -->
-  <section style="background-color: #FAF6F1;" class="py-16 md:py-20">
-    <div class="max-w-3xl mx-auto px-4 md:px-6">
-      <h2
-        class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12"
-        style="color: #3D3D3D;"
-      >
-        加購項目
+  <!-- 4. 加購品項 -->
+  <section class="spad" style="background-color: #FAF6F1; padding: 64px 0;">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 500; color: #2C1810; text-align: center; margin-bottom: 32px;">
+        加購品項
       </h2>
-      <div>
-        <!-- 表頭 -->
-        <div
-          class="flex justify-between py-4 text-sm font-medium"
-          style="color: #6B6B6B; border-bottom: 1px solid #F0EBE3;"
-        >
-          <span>項目</span>
-          <span>價格</span>
-        </div>
-        <!-- 資料行 -->
-        {
-          addons.map((item) => (
-            <div
-              class="flex justify-between py-4"
-              style="border-bottom: 1px solid #F0EBE3;"
-            >
-              <span class="text-sm" style="color: #3D3D3D;">
-                {item.name}
-              </span>
-              <span class="text-sm font-bold" style="color: #3D3D3D;">
-                {item.price}
-              </span>
-            </div>
-          ))
-        }
-      </div>
+      <table class="addon-tb" style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+          <tr>
+            <th style="text-align: left; padding: 10px 16px; background-color: #2c1810; color: #faf6f1; font-weight: 500;">品項</th>
+            <th style="text-align: left; padding: 10px 16px; background-color: #2c1810; color: #faf6f1; font-weight: 500;">規格</th>
+            <th style="text-align: left; padding: 10px 16px; background-color: #2c1810; color: #faf6f1; font-weight: 500;">價格</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            addons.map((item) => (
+              <tr>
+                <td style="padding: 10px 16px; border-bottom: 1px solid #e5e5e5; color: #3d2b1f;">{item.name}</td>
+                <td style="padding: 10px 16px; border-bottom: 1px solid #e5e5e5; color: #8c7b6b;">{item.spec}</td>
+                <td style="padding: 10px 16px; border-bottom: 1px solid #e5e5e5; color: #3d2b1f; font-weight: 500;">{item.price}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+      <p style="font-size: 13px; color: #8c7b6b; text-align: center; margin-top: 16px;">
+        如沒有喜好品項可詢問，菜單依季節調整，實際內容以預約確認為準。
+      </p>
     </div>
   </section>
 
   <!-- 5. CTA -->
-  <section style="background-color: #2C3E33;" class="py-16 md:py-20">
-    <div class="max-w-6xl mx-auto px-4 md:px-6 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #FFFFFF;">
-        準備好開烤了嗎？
+  <section style="background-color: #2C1810; padding: 56px 0; text-align: center;">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 500; color: #fff; margin-bottom: 24px;">
+        想預約服務？
       </h2>
-      <p class="mb-8 max-w-xl mx-auto" style="color: rgba(255,255,255,0.7);">
-        立即預約，讓專業團隊為您打造難忘的烤肉體驗
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
         <a
           href="/booking"
-          class="inline-block font-medium py-3.5 px-7 rounded-lg transition-colors"
-          style="background-color: #C75B39; color: #FFFFFF;"
-          onmouseover="this.style.backgroundColor='#A84A2D';"
-          onmouseout="this.style.backgroundColor='#C75B39';"
+          style="display: inline-block; padding: 12px 32px; background-color: #c75b39; color: #fff; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: 500;"
         >
-          立即預約
+          線上預約
         </a>
         <a
-          href="/contact"
-          class="inline-block font-medium py-3.5 px-7 rounded-lg transition-colors"
-          style="border: 2px solid rgba(255,255,255,0.5); color: #FFFFFF;"
-          onmouseover="this.style.borderColor='#FFFFFF';this.style.backgroundColor='rgba(255,255,255,0.08)';"
-          onmouseout="this.style.borderColor='rgba(255,255,255,0.5)';this.style.backgroundColor='transparent';"
+          href="tel:0909204600"
+          style="display: inline-block; padding: 12px 32px; background-color: transparent; color: #fff; text-decoration: none; border-radius: 6px; font-size: 16px; font-weight: 500; border: 1px solid rgba(255,255,255,0.4);"
         >
-          聯絡我們
+          撥打電話
         </a>
       </div>
     </div>
@@ -289,3 +235,24 @@ const addons = [
 
   <Footer />
 </BaseLayout>
+
+<style>
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 768px) {
+    .t4grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+    .m2grid {
+      grid-template-columns: 1fr !important;
+    }
+    .spad {
+      padding: 40px 0 !important;
+    }
+  }
+</style>

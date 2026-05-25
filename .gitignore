@@ -6,3 +6,6 @@ node_modules/
 .env
 .env.local
 .cache/
+
+# Temp assets (not committed)
+temp/
