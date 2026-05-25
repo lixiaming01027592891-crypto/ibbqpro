@@ -1,0 +1,187 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout title="線上預約｜愛烤PRO 到府烤肉服務" description="填寫線上預約表單，愛烤PRO 將盡快與您聯繫確認。提供苗栗、卓蘭及周邊到府烤肉、代烤服務。">
+  <Nav />
+
+  <!-- Hero -->
+  <section class="pt-24 pb-12 px-4" style="background-color: #FAF6F1;">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-3xl font-medium mb-4" style="color: #2C1810;">線上預約</h1>
+      <p class="text-base max-w-2xl mx-auto" style="color: #8C7B6B; line-height: 1.75;">填寫以下表單，我們將盡快與您聯繫確認</p>
+    </div>
+  </section>
+
+  <!-- Form Section -->
+  <section class="pb-20 px-4" style="background-color: #FAF6F1;">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Form -->
+      <div class="lg:col-span-2 p-8 rounded-lg" style="background-color: #FFFFFF;">
+        <form id="booking-form" action="https://formspree.io/f/xnqevjzy" method="POST" class="space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">姓名 <span style="color: #C75B39;">*</span></label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39;" placeholder="請輸入姓名" />
+            </div>
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">聯絡電話 <span style="color: #C75B39;">*</span></label>
+              <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39;" placeholder="請輸入手機號碼" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">Email</label>
+              <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39;" placeholder="請輸入電子郵件" />
+            </div>
+            <!-- Date -->
+            <div>
+              <label for="date" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">活動日期 <span style="color: #C75B39;">*</span></label>
+              <input type="date" id="date" name="date" required class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39;" />
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div>
+            <label for="location" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">活動地點 <span style="color: #C75B39;">*</span></label>
+            <input type="text" id="location" name="location" required class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39;" placeholder="請輸入縣市與地址" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <!-- Guest Count -->
+            <div>
+              <label for="guests" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">預估人數 <span style="color: #C75B39;">*</span></label>
+              <select id="guests" name="guests" required class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow appearance-none" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39; background-color: #FFFFFF;">
+                <option value="" disabled selected>請選擇人數</option>
+                <option value="10人以下">10人以下</option>
+                <option value="10-20人">10-20人</option>
+                <option value="20-40人">20-40人</option>
+                <option value="40-60人">40-60人</option>
+                <option value="60人以上">60人以上</option>
+              </select>
+            </div>
+            <!-- Event Type -->
+            <div>
+              <label for="eventType" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">活動類型</label>
+              <select id="eventType" name="eventType" class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow appearance-none" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39; background-color: #FFFFFF;">
+                <option value="" disabled selected>請選擇活動類型</option>
+                <option value="家庭聚餐">家庭聚餐</option>
+                <option value="公司派對">公司派對</option>
+                <option value="露營烤肉">露營烤肉</option>
+                <option value="民宿包棟">民宿包棟</option>
+                <option value="其他">其他</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div>
+            <label for="notes" class="block text-sm font-medium mb-2" style="color: #3D2B1F;">備註</label>
+            <textarea id="notes" name="notes" rows="4" class="w-full px-4 py-3 rounded border text-base focus:outline-none focus:ring-2 transition-shadow resize-none" style="border-color: #E8E0D8; color: #3D2B1F; --tw-ring-color: #C75B39;" placeholder="特殊需求、飲食忌口等"></textarea>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="w-full sm:w-auto px-8 py-3 rounded text-white text-base font-medium transition-opacity duration-200 hover:opacity-90" style="background-color: #C75B39;">
+            送出預約
+          </button>
+
+          <p id="form-status" class="text-sm mt-4 hidden" style="color: #3D2B1F;"></p>
+        </form>
+      </div>
+
+      <!-- Right Info Card -->
+      <div class="p-8 rounded-lg h-fit" style="background-color: #FFFFFF;">
+        <h3 class="text-lg font-medium mb-6" style="color: #2C1810;">聯絡資訊</h3>
+        <div class="space-y-5">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #C75B39;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <div>
+              <p class="text-sm font-medium" style="color: #2C1810;">電話</p>
+              <a href="tel:0909204600" class="text-sm transition-colors duration-200 hover:opacity-80" style="color: #3D2B1F;">0909-204-600</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" style="color: #C75B39;">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+            </svg>
+            <div>
+              <p class="text-sm font-medium" style="color: #2C1810;">LINE</p>
+              <p class="text-sm" style="color: #3D2B1F;">@905pkprt</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #C75B39;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <div>
+              <p class="text-sm font-medium" style="color: #2C1810;">Email</p>
+              <a href="mailto:a0909204600@gmail.com" class="text-sm transition-colors duration-200 hover:opacity-80" style="color: #3D2B1F;">a0909204600@gmail.com</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #C75B39;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <div>
+              <p class="text-sm font-medium" style="color: #2C1810;">地址</p>
+              <p class="text-sm" style="color: #3D2B1F;">苗栗縣卓蘭鎮大仁街26號</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #C75B39;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <div>
+              <p class="text-sm font-medium" style="color: #2C1810;">營業時間</p>
+              <p class="text-sm" style="color: #3D2B1F;">每日 10:00-22:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6" style="border-top: 1px solid #F0EBE5;">
+          <div class="flex items-start gap-2">
+            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="color: #8B6914;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <p class="text-sm" style="color: #8C7B6B; line-height: 1.75;">送出後我們將在 24 小時內回覆</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <script>
+    const form = document.getElementById('booking-form');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          status.textContent = '預約已送出！我們將在 24 小時內與您聯繫。';
+          status.style.color = '#15803d';
+          status.classList.remove('hidden');
+          form.reset();
+        } else {
+          throw new Error('提交失敗');
+        }
+      } catch {
+        status.textContent = '送出失敗，請直接撥打 0909-204-600 或透過 LINE 聯繫我們。';
+        status.style.color = '#C75B39';
+        status.classList.remove('hidden');
+      }
+    });
+  </script>
+</BaseLayout>

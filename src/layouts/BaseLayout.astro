@@ -2,24 +2,116 @@
 interface Props {
   title?: string;
   description?: string;
+  ogImage?: string;
+  canonicalPath?: string;
+  noindex?: boolean;
 }
-const { 
+
+const {
   title = "愛烤PRO｜苗栗卓蘭到府烤肉・專人代烤服務",
-  description = "愛烤PRO 提供苗栗、卓蘭及周邊到府烤肉服務，適合家庭聚餐、公司派對、露營與民宿包棟，提供食材、菜單與專人到府協助，歡迎來電或 LINE 預約。"
+  description = "愛烤PRO 提供苗栗、卓蘭及周邊到府烤肉服務，適合家庭聚餐、公司派對、露營與民宿包棟，提供食材、菜單與專人到府協助，歡迎來電或 LINE 預約。",
+  ogImage = "/images/hero.png",
+  canonicalPath = Astro.url.pathname,
+  noindex = true,
 } = Astro.props;
+
+const siteUrl = "https://ibbqpro.pages.dev";
+const canonicalUrl = new URL(canonicalPath, siteUrl).href;
+const ogImageUrl = new URL(ogImage, siteUrl).href;
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "愛烤PRO",
+  description: "苗栗卓蘭到府烤肉・專人代烤服務",
+  url: siteUrl,
+  telephone: "+886-909-204-600",
+  email: "a0909204600@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "大仁街26號",
+    addressLocality: "卓蘭鎮",
+    addressRegion: "苗栗縣",
+    addressCountry: "TW",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "24.3106",
+    longitude: "120.8239",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "10:00",
+      closes: "22:00",
+    },
+  ],
+  priceRange: "$$",
+  areaServed: ["苗栗縣", "台中市", "彰化縣", "南投縣"],
+  serviceType: "到府烤肉・到府代烤",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+886-909-204-600",
+    contactType: "reservations",
+    availableLanguage: ["Chinese"],
+  },
+  sameAs: ["https://line.me/ti/p/@905pkprt"],
+};
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-TW">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 基本 Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <meta name="description" content={description}>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- 字體預載入 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="愛烤PRO" />
+
+    <!-- Twitter Card Tags -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageUrl} />
+
+    <!-- Schema.org 結構化資料 (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+    <!-- 額外 head slot（供頁面覆寫） -->
     <slot name="head" />
   </head>
   <body class="font-sans text-bbq-text bg-bbq-bg antialiased">

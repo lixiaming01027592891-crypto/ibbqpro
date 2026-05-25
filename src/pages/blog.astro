@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+
+const posts = [
+  {
+    title: "自家聚會也可以找愛烤PRO嗎？自宅聚會｜苗栗自宅聚會",
+    date: "2025/06/27",
+    excerpt: "越來越多人選擇在家中舉辦聚會，不必出門人擠人，就能享受溫馨又美味的烤肉時光。愛烤PRO 提供完整的到府代烤服務...",
+    tags: ["自宅聚會", "苗栗"],
+    image: "/images/family.png",
+  },
+  {
+    title: "到府代烤的6大好處？到府烤肉｜苗栗到府烤肉",
+    date: "2025/06/27",
+    excerpt: "到府代烤服務近年來越來越受歡迎，不只是省時省力，更能讓您真正享受與親友相聚的每一刻。本文為您整理到府代烤的六大優勢...",
+    tags: ["到府烤肉", "代烤服務"],
+    image: "/images/company.png",
+  },
+  {
+    title: "為什麼露營要選愛烤PRO？露營到府代烤｜苗栗露營區代烤",
+    date: "2025/06/27",
+    excerpt: "露營加上烤肉是絕佳的組合，但自己準備食材和器具往往耗時費力。愛烤PRO 的露營代烤服務，讓您輕鬆享受露營烤肉的樂趣...",
+    tags: ["露營", "代烤"],
+    image: "/images/camping.png",
+  },
+  {
+    title: "公司聚餐不想再自己張羅？活動代烤｜苗栗活動代烤",
+    date: "2025/06/27",
+    excerpt: "公司聚餐是凝聚團隊感情的重要時刻，但籌備過程常常讓人筋疲力竭。愛烤PRO 的企業代烤服務，從食材到場地布置一手包辦...",
+    tags: ["公司聚餐", "活動代烤"],
+    image: "/images/hero.png",
+  },
+];
+---
+
+<BaseLayout title="愛烤PRO 部落格｜烤肉知識、活動分享、美食推薦" description="愛烤PRO 部落格分享烤肉知識、活動案例、美食推薦，以及到府代烤的最新資訊。">
+  <Nav />
+
+  <!-- Hero -->
+  <section class="pt-24 pb-12 px-4" style="background-color: #FAF6F1;">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-3xl font-medium mb-4" style="color: #2C1810;">愛烤PRO 部落格</h1>
+      <p class="text-base max-w-2xl mx-auto" style="color: #8C7B6B; line-height: 1.75;">烤肉知識、活動分享、美食推薦</p>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="pb-20 px-4" style="background-color: #FAF6F1;">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      {posts.map((post) => (
+        <article class="rounded-lg overflow-hidden transition-shadow duration-200 hover:shadow-md" style="background-color: #FFFFFF;">
+          <img src={post.image} alt={post.title} class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              {post.tags.map((tag) => (
+                <span class="text-xs px-2.5 py-1 rounded-full font-medium" style="background-color: #C75B39; color: #FFFFFF;">{tag}</span>
+              ))}
+            </div>
+            <p class="text-xs mb-3" style="color: #8C7B6B;">{post.date}</p>
+            <h2 class="text-lg font-medium mb-3" style="color: #2C1810;">{post.title}</h2>
+            <p class="text-sm mb-4" style="color: #3D2B1F; line-height: 1.75;">{post.excerpt}</p>
+            <a href="#" class="inline-flex items-center text-sm font-medium transition-opacity duration-200 hover:opacity-80" style="color: #C75B39;">
+              閱讀更多
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <Footer />
+</BaseLayout>
