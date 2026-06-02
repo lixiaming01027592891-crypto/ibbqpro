@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-const siteUrl = "https://ibbqpro.pages.dev";
+const siteUrl = "https://bbqprotw.com";
 
 interface SitemapPage {
   path: string;

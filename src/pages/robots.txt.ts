@@ -1,11 +1,9 @@
 import type { APIRoute } from "astro";
 
-const siteUrl = "https://ibbqpro.pages.dev";
+const siteUrl = "https://bbqprotw.com";
 
-// 測試階段：全站封鎖 (Disallow: /)
-// 上線時請改為 Allow: /
 const robotsContent = `User-agent: *
-Disallow: /
+Allow: /
 
 Sitemap: ${siteUrl}/sitemap.xml
 `;
