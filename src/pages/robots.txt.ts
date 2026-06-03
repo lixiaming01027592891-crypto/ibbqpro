@@ -5,7 +5,7 @@ const siteUrl = "https://bbqprotw.com";
 const robotsContent = `User-agent: *
 Allow: /
 
-Sitemap: ${siteUrl}/sitemap.xml
+Sitemap: ${siteUrl}/sitemap-0.xml
 `;
 
 export const GET: APIRoute = async () => {
