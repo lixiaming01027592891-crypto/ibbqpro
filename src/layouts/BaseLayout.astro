@@ -10,9 +10,9 @@ interface Props {
 const {
   title = "愛烤PRO｜苗栗卓蘭到府烤肉・專人代烤服務",
   description = "愛烤PRO 提供苗栗、卓蘭及周邊到府烤肉服務，適合家庭聚餐、公司派對、露營與民宿包棟，提供食材、菜單與專人到府協助，歡迎來電或 LINE 預約。",
-  ogImage = "/images/hero.png",
+  ogImage = "/images/hero.jpg",
   canonicalPath = Astro.url.pathname,
-  noindex = true,
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = "https://bbqprotw.com";
@@ -64,7 +64,13 @@ const schemaOrg = {
     contactType: "reservations",
     availableLanguage: ["Chinese"],
   },
-  sameAs: ["https://line.me/ti/p/@905pkprt"],
+  sameAs: [
+    "https://line.me/ti/p/@905pkprt",
+    "https://www.facebook.com/profile.php?id=61560094407223",
+    "https://www.instagram.com/ibbqpro/",
+    "https://www.tiktok.com/@pro559509",
+    "https://www.youtube.com/channel/UCL08VRymkYi0b5c4JqAEeyA",
+  ],
 };
 ---
 
