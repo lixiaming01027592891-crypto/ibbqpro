@@ -97,7 +97,7 @@ image: "/images/company-bbq-event.png"
 
 ### 考量因素
 
-設計企業烤肉的菜單時，需要考慮以下因素：
+設計企業烤肉的菜單時，除了參考[烤肉食材份量估算實用指南](/blog/bbq-food-portion-guide)先抓準每人份量，還需要考慮以下因素：
 
 **宗教信仰**
 
